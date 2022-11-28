@@ -1,0 +1,34 @@
+server:
+  port: 8761
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
+  security:
+    enabled: false
+spring:
+  boot:
+    admin:  
+      context-path: /admin
+
+  config:
+    import: "optional:configserver:"
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:${server.port}/eureka/
+
+
+
+
+
+
+
